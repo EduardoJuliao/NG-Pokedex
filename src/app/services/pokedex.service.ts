@@ -11,8 +11,8 @@ import { PokemonList } from '../models/pokemon.list.model';
 export class PokedexService {
     constructor(private http: HttpClient) { }
 
-    private readonly limit: number = 20;
-
+    public readonly limit: number = 20;
+ 
     /**
      * 
      * 

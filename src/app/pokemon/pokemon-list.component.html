@@ -1,0 +1,13 @@
+<!-- <div class="card-holder">
+    <div class="card" *ngFor="let pokemon of listLoadedPokemon()">
+        <img src="{{pokemon.sprites.front_default}}" *ngIf="pokemon != undefined" />
+    </div>
+</div> -->
+<div *ngIf="loading == true">
+    carregando
+</div>
+<ul>
+    <li *ngFor="let l of pokemonsSimpleList" (click)="getPokemon(l.number)">
+        <i>{{l.number}}</i> - <strong>{{l.name}}</strong>
+    </li>
+</ul>

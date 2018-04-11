@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://pokeapi.salestock.net/api/v2/',
+  apiBaseUrl: 'https://pokeapi.co/api/v2/',
 };
