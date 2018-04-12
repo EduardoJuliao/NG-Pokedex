@@ -22,6 +22,7 @@ export class PokedexService {
      */
     public getPokemonList(offset: number): Observable<HttpListResponse<PokemonList>> {
         let url = environment.apiBaseUrl + `pokemon/?limit=${this.limit}&offset=${offset}`;
+        console.log(url);
         return this.http.get<HttpListResponse<PokemonList>>(url);
     }
 

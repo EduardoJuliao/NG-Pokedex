@@ -1,13 +1,14 @@
-<!-- <div class="card-holder">
-    <div class="card" *ngFor="let pokemon of listLoadedPokemon()">
-        <img src="{{pokemon.sprites.front_default}}" *ngIf="pokemon != undefined" />
+<div class="pokedex">
+    <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadMore()" 
+    [scrollWindow]="false"
+    style="height: 150px; overflow-y: auto;">
+        <ul class="pokedex-list">
+            <li *ngFor="let l of pokemonsSimpleList" (click)="getPokemon(l.number)">
+                <i>{{l.number}}</i> -
+                <strong>{{l.name}}</strong>
+            </li>
+        </ul>
     </div>
-</div> -->
-<div *ngIf="loading == true">
-    carregando
+
+    <app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" [pokemon-number]="selectedPokemon"></app-pokemon-detail>
 </div>
-<ul>
-    <li *ngFor="let l of pokemonsSimpleList" (click)="getPokemon(l.number)">
-        <i>{{l.number}}</i> - <strong>{{l.name}}</strong>
-    </li>
-</ul>

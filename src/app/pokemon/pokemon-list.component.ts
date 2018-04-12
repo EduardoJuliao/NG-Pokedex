@@ -6,15 +6,16 @@ import { Pokemon } from '../models/pokemon.model';
 
 @Component({
     selector: 'app-pokemon-list',
-    templateUrl: 'pokemon-list.component.html'
+    templateUrl: 'pokemon-list.component.html',
+    styleUrls: ['./pokemon-list.component.css']
 })
 
 export class PokemonListComponent implements OnInit {
-
-    pokemons: Pokemon[] = [];
+ 
     lastIndexSearch: number = 0;
     pokemonsSimpleList: any[] = [];
     loading: boolean;
+    selectedPokemon: number = 0;
 
     ngOnInit() {
         this.loadPokemons(this.lastIndexSearch);
@@ -24,6 +25,7 @@ export class PokemonListComponent implements OnInit {
         this.loading = true;
         this.pokedexService.getPokemonList(index)
             .subscribe((data: HttpListResponse<PokemonList>) => {
+                this.loading = false;
                 data.results.map(pokemon => {
                     let result = pokemon.url.match(/\/(\d+)\//);
                     if (result) {
@@ -32,24 +34,17 @@ export class PokemonListComponent implements OnInit {
                             name: pokemon.name
                         };
                     }
-                    this.loading = false;
                 }).forEach(item => this.pokemonsSimpleList.push(item));
                 this.lastIndexSearch += this.pokedexService.limit;
             });
     }
 
     private getPokemon(id: number): void {
-        this.pokedexService.getPokemon(id)
-            .subscribe((data: Pokemon) => {
-                this.pokemons[data.id - 1] = data;
-            });
-    }
-
-    private listLoadedPokemon(): Pokemon[] {
-        return this.pokemons.filter(p => p != undefined);
+       this.selectedPokemon = id;
     }
 
     private loadMore(): void {
+        if (this.loading) return;
         this.loadPokemons(this.lastIndexSearch);
     }
 

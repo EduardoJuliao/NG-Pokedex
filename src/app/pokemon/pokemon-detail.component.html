@@ -1,0 +1,20 @@
+<img width="128" src="assets/img/loader.gif" *ngIf="loading">
+
+<div class="card-holder" *ngIf="!loading">
+    <div class="card">
+        <img src="{{pokemon.sprites.front_default}}" *ngIf="pokemon != undefined" />
+        <br/>
+        <span>{{pokemon.id}}</span>-
+        <span>{{pokemon.name}}</span>
+        <br/>
+
+        <div *ngFor="let type of pokemon.types">
+            <span>{{type.type.name}}</span>
+        </div>
+        <br/>
+        <div *ngFor="let stat of pokemon.stats">
+            <span>{{stat.stat.name}}:{{stat.base_stat}}</span>
+        </div>
+        <br/>
+    </div>
+</div>
