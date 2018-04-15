@@ -9,22 +9,20 @@ import { Pokemon } from '../models/pokemon.model';
 
 export class PokemonDetailComponent implements OnInit, OnChanges {
     
-    
-    loading: boolean;
     pokemon: Pokemon;
 
     @Input("pokemon-number") pokemonId: number;
     
     constructor(private pokedexService: PokedexService) { 
-        this.loading = false;
+        
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if(this.loading) return;
-        this.loading = true;
+        if(this.pokedexService.isLoading) return;
+        this.pokedexService.isLoading = true;
         this.pokedexService.getPokemon(this.pokemonId)
             .subscribe((data: Pokemon) => {
-                this.loading = false;
+                this.pokedexService.isLoading = false;
                 this.pokemon = data;
                 console.log(this.pokemon);
             });

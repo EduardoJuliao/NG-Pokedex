@@ -1,4 +1,10 @@
 .pokedex {
     display: flex;
     flex-direction: row;
-} 
+}
+.pokemon-list{
+    width: 100%;
+}
+.pokemon-list > img{
+    width: 48px;
+}

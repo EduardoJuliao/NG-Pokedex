@@ -1,14 +1,14 @@
 <div class="pokedex">
     <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="loadMore()" 
     [scrollWindow]="false"
-    style="height: 150px; overflow-y: auto;">
-        <ul class="pokedex-list">
-            <li *ngFor="let l of pokemonsSimpleList" (click)="getPokemon(l.number)">
-                <i>{{l.number}}</i> -
-                <strong>{{l.name}}</strong>
-            </li>
-        </ul>
+    style="height: 100vh; overflow-y: auto;">
+    <div class="pokemon-list" *ngFor="let l of pokemonsSimpleList" 
+    (click)="getPokemon(l.number)">
+            <img [src]="selectedPokemon == l.number ? 'assets/img/pokeball.png' : 'assets/img/pokeball - blank.png'"/>
+            <i>{{l.number}}</i> -
+            <strong>{{l.name}}</strong>
     </div>
 
-    <app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" [pokemon-number]="selectedPokemon"></app-pokemon-detail>
+    
 </div>
+<app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" [pokemon-number]="selectedPokemon"></app-pokemon-detail>

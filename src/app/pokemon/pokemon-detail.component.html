@@ -1,6 +1,6 @@
-<img width="128" src="assets/img/loader.gif" *ngIf="loading">
+<img width="128" src="assets/img/loader.gif" *ngIf="pokedexService.isLoading">
 
-<div class="card-holder" *ngIf="!loading">
+<div class="card-holder" *ngIf="!pokedexService.isLoading">
     <div class="card">
         <img src="{{pokemon.sprites.front_default}}" *ngIf="pokemon != undefined" />
         <br/>

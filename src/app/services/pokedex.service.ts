@@ -9,7 +9,11 @@ import { PokemonList } from '../models/pokemon.list.model';
 
 @Injectable()
 export class PokedexService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        this.isLoading = false;
+     }
+
+    public isLoading: boolean;
 
     public readonly limit: number = 20;
  
@@ -20,9 +24,9 @@ export class PokedexService {
      * @returns {Observable<PokemonList[]>} 
      * @memberof PokedexService
      */
-    public getPokemonList(offset: number): Observable<HttpListResponse<PokemonList>> {
-        let url = environment.apiBaseUrl + `pokemon/?limit=${this.limit}&offset=${offset}`;
-        console.log(url);
+    public getPokemonList(offset: number, limit?: number): Observable<HttpListResponse<PokemonList>> {
+        let url = environment.apiBaseUrl + `pokemon/?limit=${limit || this.limit}&offset=${offset}`;
+        
         return this.http.get<HttpListResponse<PokemonList>>(url);
     }
 
