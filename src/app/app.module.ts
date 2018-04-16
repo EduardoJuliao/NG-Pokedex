@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { PokedexService } from './services/pokedex.service';
 import { PokemonListComponent } from './pokemon/pokemon-list.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

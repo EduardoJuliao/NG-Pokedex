@@ -3,12 +3,11 @@
     [scrollWindow]="false"
     style="height: 100vh; overflow-y: auto;">
     <div class="pokemon-list" *ngFor="let l of pokemonsSimpleList" 
-    (click)="getPokemon(l.number)">
+    (click)="getPokemon(l.number)"> 
             <img [src]="selectedPokemon == l.number ? 'assets/img/pokeball.png' : 'assets/img/pokeball - blank.png'"/>
             <i>{{l.number}}</i> -
             <strong>{{l.name}}</strong>
     </div>
-
-    
 </div>
-<app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" [pokemon-number]="selectedPokemon"></app-pokemon-detail>
+<app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" 
+    [pokemon-number]="selectedPokemon"></app-pokemon-detail>
