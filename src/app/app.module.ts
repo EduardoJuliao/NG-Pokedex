@@ -18,6 +18,7 @@ import { CaptalizePipe } from './pipes/captalize.pipe';
     PokemonDetailComponent,
     HeaderComponent,
     CaptalizePipe
+    
   ],
   imports: [
     BrowserModule,
