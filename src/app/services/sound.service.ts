@@ -25,7 +25,7 @@ export class SoundService {
     public playTheme():boolean{
         if(!this.themePlayer){
             this.themePlayer = new Howl({
-                src: ['assets/sounds/theme.wav'],
+                src: ['assets/sounds/theme.mp3'],
                 loop: true,
                 volume: 0.5,
                 html5: true

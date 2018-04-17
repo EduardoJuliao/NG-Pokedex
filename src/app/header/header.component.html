@@ -3,7 +3,10 @@
         <h1>Pokédex</h1>
     </div>
     <div>
-        <i class="mdi mdi-48px mdi-play"></i>
+        <a href="javascript:void(0);" (click)="playTheme();">
+            <i class="mdi mdi-48px mdi-play"
+            [class.mdi-play]="!isPlaying"
+            [class.mdi-pause]="isPlaying"></i>
+        </a>
     </div>
-
 </div>

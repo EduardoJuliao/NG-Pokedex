@@ -1,6 +1,5 @@
+import { SoundService } from './../services/sound.service';
 import { Component, OnInit } from '@angular/core';
-
-import { Howl } from 'howler'
 
 @Component({
     selector: 'app-header',
@@ -11,11 +10,16 @@ import { Howl } from 'howler'
 })
 
 export class HeaderComponent implements OnInit {
-    player: Howl;
 
-    constructor() { }
+    private isPlaying: boolean = false;
 
-    ngOnInit() { 
-        
+    constructor(private soundService: SoundService) { }
+
+    ngOnInit() {
+    }
+
+    playTheme(): void {
+        this.soundService.playTheme();
+        this.isPlaying = !this.isPlaying;
     }
 }
