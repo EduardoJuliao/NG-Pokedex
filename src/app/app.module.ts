@@ -7,12 +7,14 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { AppComponent } from './app.component';
 import { PokedexService } from './services/pokedex.service';
 import { PokemonListComponent } from './pokemon/pokemon-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonListComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

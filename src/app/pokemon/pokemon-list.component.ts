@@ -15,9 +15,10 @@ export class PokemonListComponent implements OnInit {
     lastIndexSearch: number = 0;
     pokemonsSimpleList: any[] = [];
     selectedPokemon: number = 0;
+    limit: number = 80;
 
     ngOnInit() {
-        this.loadPokemons(this.lastIndexSearch, 80);
+        this.loadPokemons(this.lastIndexSearch, this.limit);
     }
 
     private loadPokemons(index: number, limit?: number) {
@@ -45,7 +46,7 @@ export class PokemonListComponent implements OnInit {
 
     private loadMore(): void {
         if (this.pokedexService.isLoading) return;
-        this.loadPokemons(this.lastIndexSearch);
+        this.loadPokemons(this.lastIndexSearch, this.limit);
     }
 
     constructor(private pokedexService: PokedexService) {

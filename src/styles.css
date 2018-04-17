@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@mdi/font/css/materialdesignicons.min.css";
+
+@font-face {
+    font-family: '8bits';
+    src: url('assets/fonts/PixelOperator.ttf')
+}
+
 body {
-    overflow: hidden;    
+    overflow: hidden;
+    margin: 0px;
+    font-family: '8bits';
 }
