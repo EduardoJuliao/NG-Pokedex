@@ -16,7 +16,7 @@ export class PokemonListComponent implements OnInit {
     lastIndexSearch: number = 0;
     pokemonsSimpleList: any[] = [];
     selectedPokemon: number = 0;
-    limit: number = 80;
+    limit: number = 2000;
 
     ngOnInit() {
         this.loadPokemons(this.lastIndexSearch, this.limit);

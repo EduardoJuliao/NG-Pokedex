@@ -13,6 +13,7 @@ import { Pokemon } from '../models/pokemon.model';
 export class PokemonDetailComponent implements OnInit, OnChanges {
     
     pokemon: Pokemon;
+    maxStatus: number = 0;
 
     @Input("pokemon-number") pokemonId: number;
     
@@ -21,6 +22,7 @@ export class PokemonDetailComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
+        this.maxStatus = 0;
         if(this.pokedexService.isLoading) return;
         this.pokedexService.isLoading = true;
         this.pokedexService.getPokemon(this.pokemonId)
@@ -32,5 +34,10 @@ export class PokemonDetailComponent implements OnInit, OnChanges {
 
     ngOnInit() { 
         
+    }
+
+    addToCombatPower(statValue: number): number{
+        this.maxStatus += statValue;
+        return statValue;
     }
 }
