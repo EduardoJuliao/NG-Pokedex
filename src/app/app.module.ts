@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PokedexService } from './services/pokedex.service';
 import { PokemonListComponent } from './pokemon/pokemon-list.component';
 import { HeaderComponent } from './header/header.component';
+import { SoundService } from './services/sound.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     InfiniteScrollModule
   ],
   providers: [
-    PokedexService
+    PokedexService,
+    SoundService
   ],
   bootstrap: [AppComponent]
 })

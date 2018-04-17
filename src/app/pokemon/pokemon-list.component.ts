@@ -1,3 +1,4 @@
+import { SoundService } from './../services/sound.service';
 import { Component, OnInit } from '@angular/core';
 import { PokemonList } from '../models/pokemon.list.model';
 import { HttpListResponse } from '../models/HttpListResponse.model';
@@ -41,6 +42,7 @@ export class PokemonListComponent implements OnInit {
 
     private getPokemon(id: number): void {
         if (this.pokedexService.isLoading) return;
+        this.soundService.playSelect();
        this.selectedPokemon = id;
     }
 
@@ -49,6 +51,7 @@ export class PokemonListComponent implements OnInit {
         this.loadPokemons(this.lastIndexSearch, this.limit);
     }
 
-    constructor(private pokedexService: PokedexService) {
+    constructor(private pokedexService: PokedexService,
+    private soundService: SoundService) {
     }
 }

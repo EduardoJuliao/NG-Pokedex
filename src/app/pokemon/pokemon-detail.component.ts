@@ -24,7 +24,6 @@ export class PokemonDetailComponent implements OnInit, OnChanges {
             .subscribe((data: Pokemon) => {
                 this.pokedexService.isLoading = false;
                 this.pokemon = data;
-                console.log(this.pokemon);
             });
     }
 
