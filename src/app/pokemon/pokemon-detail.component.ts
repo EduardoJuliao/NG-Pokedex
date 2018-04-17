@@ -4,7 +4,10 @@ import { Pokemon } from '../models/pokemon.model';
 
 @Component({
     selector: 'app-pokemon-detail',
-    templateUrl: 'pokemon-detail.component.html'
+    templateUrl: 'pokemon-detail.component.html',
+    styleUrls: [
+        './pokemon-detail.component.css'
+    ]
 })
 
 export class PokemonDetailComponent implements OnInit, OnChanges {
