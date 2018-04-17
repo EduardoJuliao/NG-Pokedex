@@ -5,12 +5,9 @@
             <img [src]="selectedPokemon == l.number ? 'assets/img/pokeball.png' : 'assets/img/pokeball - blank.png'" />
             <div class="name">
                 <i>{{l.number}}</i> -
-                <strong>{{l.name}}</strong>
+                <strong>{{l.name |captalize}}</strong>
             </div>
         </div>
     </div>
-    <div>
-        <app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" [pokemon-number]="selectedPokemon"></app-pokemon-detail>
-    </div>
-
+    <app-pokemon-detail class="detail" *ngIf="selectedPokemon > 0" [pokemon-number]="selectedPokemon"></app-pokemon-detail>
 </div>

@@ -1,13 +1,12 @@
-.holder{
-    display: flex;
-    flex-direction: row;
+.holder {
+    
 }
 
-.loader{ 
-   flex: 2;
-   justify-content: center;
-   align-items: center;
-}
-.loader > img{ 
+.loader>img {
     width: 256px;
+}
+
+.pokemon-detail {
+    font-size: 22px;
+    flex:1;
 }

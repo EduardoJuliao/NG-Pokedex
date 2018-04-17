@@ -9,13 +9,15 @@ import { PokedexService } from './services/pokedex.service';
 import { PokemonListComponent } from './pokemon/pokemon-list.component';
 import { HeaderComponent } from './header/header.component';
 import { SoundService } from './services/sound.service';
+import { CaptalizePipe } from './pipes/captalize.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonListComponent,
     PokemonDetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    CaptalizePipe
   ],
   imports: [
     BrowserModule,
